@@ -1,12 +1,22 @@
 {
   "name": "nodejs-api-pack",
   "version": "1.0.0",
+  "description": "Basic apis flow helper for NodeJS",
   "main": "src/index.js",
   "license": "MIT",
+  "author": {
+    "name": "Claudinei Machado",
+    "email": "cjchamado@gmail.com",
+    "url": "https://github.com/cjchamado"
+  },
   "devDependencies": {
     "jest": "^24.8.0"
   },
   "scripts": {
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cjchamado/nodejs-api-pack.git"
   }
 }
