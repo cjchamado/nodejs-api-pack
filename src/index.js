@@ -82,6 +82,16 @@ module.exports = class ApiPack {
   }
 
   async deserialize(data = {}) {
+    const method = this.operation.method.toUpperCase();
+
+    if (
+      [Method.GET, Method.DELETE].indexOf(method) >= 0 ||
+      ([Method.POST, Method.PUT].indexOf(method) >= 0 &&
+        !Object.keys(data).length)
+    ) {
+      return;
+    }
+
     if (!this.operation.data) {
       const provider = this.getOperationProvider();
       if (!provider) return;
@@ -95,38 +105,52 @@ module.exports = class ApiPack {
 
   async check() {
     const checker = this.getOperationChecker();
-    if (checker) {
-      await checker.check(this.operation);
+
+    if (!checker || !this.operation.data) {
+      return;
     }
+
+    await checker.check(this.operation);
   }
 
   async validate() {
+    const method = this.operation.method.toUpperCase();
     const validator = this.getOperationValidator();
-    if (validator) {
-      await validator.validate(this.operation);
+
+    if (Method.GET === method || Method.DELETE === method || !validator) {
+      return;
     }
+
+    await validator.validate(this.operation);
   }
 
   async write() {
+    const method = this.operation.method.toUpperCase();
     const persister = this.getOperationPersister();
-    if (persister) {
-      switch (this.operation.method.toUpperCase()) {
-        case Method.PUT:
-        case Method.POST:
-        case Method.PATCH:
-          await persister.persist(this.operation);
-          break;
-        case Method.DELETE:
-          await persister.remove(this.operation);
-          break;
-      }
+
+    if (!persister || method === Method.GET) {
+      return;
+    }
+
+    switch (method) {
+      case Method.PUT:
+      case Method.POST:
+      case Method.PATCH:
+        await persister.persist(this.operation);
+        break;
+      case Method.DELETE:
+        await persister.remove(this.operation);
+        break;
     }
   }
 
   async serialize() {
     const serializer = this.getOperationSerializer();
-    if (serializer) {
-      await serializer.serialize(this.operation);
+
+    if (!serializer || !this.operation.data) {
+      return;
     }
+
+    await serializer.serialize(this.operation);
   }
 };
