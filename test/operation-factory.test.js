@@ -1,4 +1,4 @@
-const { OperationFactory } = require("../../src/operation");
+const { OperationFactory } = require("../src");
 
 describe("OperationFactory", () => {
   it("Defaults", () => {

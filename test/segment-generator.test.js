@@ -1,7 +1,4 @@
-const {
-  DashSegmentGenerator,
-  UnderscoreSegmentGenerator
-} = require("../../src/operation");
+const { DashSegmentGenerator, UnderscoreSegmentGenerator } = require("../src");
 
 describe("SegmentGenerator", () => {
   it("DashSegmentGenerator", () => {

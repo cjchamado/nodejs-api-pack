@@ -1,7 +1,4 @@
-const {
-  PathResolver,
-  UnderscoreSegmentGenerator
-} = require("../../src/operation/");
+const { PathResolver, UnderscoreSegmentGenerator } = require("../src");
 
 describe("PathResolver", () => {
   it("Static", () => {

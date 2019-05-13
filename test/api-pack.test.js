@@ -1,4 +1,4 @@
-const ApiPack = require("./../src");
+const { ApiPack } = require("./../src");
 
 describe("Api Pack Testing", () => {
   it("Default instance", () => {
