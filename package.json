@@ -1,6 +1,6 @@
 {
   "name": "@kolinalabs/nodejs-api-pack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Basic API flow helper for NodeJS",
   "main": "src/index.js",
   "license": "MIT",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cjchamado/nodejs-api-pack.git"
+    "url": "https://github.com/kolinalabs/nodejs-api-pack.git"
   },
   "dependencies": {
     "inflected": "^2.0.4"
