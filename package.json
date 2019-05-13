@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-api-pack",
+  "name": "@kolinalabs/nodejs-api-pack",
   "version": "1.0.0",
   "description": "Basic API flow helper for NodeJS",
   "main": "src/index.js",
