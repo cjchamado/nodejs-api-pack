@@ -48,6 +48,18 @@ yarn add @kolinalabs/nodejs-api-pack
 
 ## Example
 
+The examples below may be used as a reference, although they do not produce a result.
+
+For full use, use the integration features:
+
+- [Mongoose](https://github.com/kolinalabs/api-pack-mongoose)
+
+- [ExpressJS](https://github.com/kolinalabs/api-pack-express)
+
+- [KoaJS](https://github.com/kolinalabs/api-pack-koa)
+
+- [Integrated examples](https://github.com/kolinalabs/nodejs-api-pack-samples)
+
 **Custom performers**
 
 ```js
