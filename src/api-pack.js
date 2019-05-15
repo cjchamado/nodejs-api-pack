@@ -60,6 +60,7 @@ module.exports = class ApiPack {
   }
 
   async read() {
+    this.operation.data = null;
     const provider = this.getOperationProvider();
     if (!provider) return;
     try {
