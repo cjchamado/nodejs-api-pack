@@ -8,6 +8,7 @@ module.exports = class ApiPack {
     this.serializers = [];
     this.validators = [];
     this.operation = {};
+    this.routeChecker = null;
   }
 
   checker(checker) {
@@ -37,6 +38,10 @@ module.exports = class ApiPack {
 
   errors(type) {
     return this.operation.context.errors[type];
+  }
+
+  getRouteChecker() {
+    return this.routeChecker;
   }
 
   getOperationChecker() {
@@ -102,6 +107,14 @@ module.exports = class ApiPack {
     if (serializer) {
       await serializer.deserialize(this.operation, data);
     }
+  }
+
+  async checkRoute() {
+    const checker = this.getRouteChecker();
+    if (!checker) {
+      return;
+    }
+    await checker.checkRoute(this.operation);
   }
 
   async check() {
