@@ -1,4 +1,5 @@
 const { Method, Type } = require("./enums");
+const StrictApiPack = require('./strict-api-pack');
 
 module.exports = class ApiPack {
   constructor() {
@@ -166,5 +167,17 @@ module.exports = class ApiPack {
     }
 
     await serializer.serialize(this.operation);
+  }
+
+  strictify(operation) {
+    return new StrictApiPack({
+      operation,
+      provider: this.getOperationProvider(),
+      persister: this.getOperationPersister(),
+      routeChecker: this.getRouteChecker(),
+      resourceChecker: this.getOperationChecker(), /** @deprecated method */
+      validator: this.getOperationValidator(),
+      serializer: this.getOperationSerializer()
+    });
   }
 };

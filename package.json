@@ -1,6 +1,6 @@
 {
   "name": "@kolinalabs/nodejs-api-pack",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Basic API flow helper for NodeJS",
   "main": "src/index.js",
   "license": "MIT",
